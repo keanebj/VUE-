@@ -1,0 +1,7 @@
+.px2rem(@name, @px){
+  @{name}: @px / 75 * 1rem;
+}
+.height-line-height-rem(@px){
+  .px2rem(height,@px);
+  .px2rem(line-height,@px);
+}
