@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/views/Index'
 import List from '@/views/List'
 import Register from '@/views/Register'
+import Map from '@/views/Map'
 
 Vue.use(Router)
 
@@ -22,17 +23,21 @@ var router = new Router({
       path: '/List',
       name: 'list',
       component: List
+    },{
+      path: '/Map',
+      name: 'Map',
+      component: Map
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path !== '/Register' && !localStorage.isRegister) {
+if (to.path !== '/Register' && !localStorage.isRegister) {
     router.push('/Register')
     next(false)
-  } else {
+} else {
     next()
-  }
+}
 })
 
 export default router
