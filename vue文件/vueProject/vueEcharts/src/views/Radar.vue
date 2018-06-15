@@ -26,14 +26,19 @@
 		methods: {
 
 			initData() {
-
+				var weatherIcons = {
+				    'Sunny': '../assets/logo.png',
+				    'Cloudy': '../assets/logo.png',
+				    'Showers': '../assets/logo.png'
+				};
 				this.chart = echarts.init(this.$refs.myEchart);
-				this.chart.setOption(
-					{
+				this.chart.setOption({
 					title: {
 						text: '基础雷达图'
 					},
-					tooltip: {},
+					tooltip: {
+						
+					},
 					legend: {
 						data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
 					},
@@ -53,9 +58,8 @@
 						},
 						indicator: [{
 								name: '销售（sales）',
-								max: 6500,
-								icon: "image:../assets/logo.png"
-
+								max: 6500
+						
 							},
 							{
 								name: '管理（Administration）',
@@ -83,11 +87,12 @@
 						name: '预算 vs 开销（Budget vs spending）',
 						type: 'radar',
 						markPoint: {
+							animation: "true",
 							//							'circle' | 'rectangle' | 'triangle' | 'diamond' |
 							//'emptyCircle' | 'emptyRectangle' | 'emptyTriangle' | 'emptyDiamond''heart'（心形）、'droplet'（水滴）、'pin'（标注）、'arrow'（箭头）和'star'（五角星） 
 							//							symbol: 'heart',
 							/*指定一个类型*/
-
+							//							symbol: 'heart',
 							data: [
 								/*value为值，x,y对应坐标，symbolSize为显示大小*/
 								{
@@ -100,13 +105,14 @@
 								}
 
 							],
+							//							symbol:"triangle",  //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+							//							symbolSize:30,
 							label: {
 								normal: {
 									textStyle: {
 										fontSize: 100,
-										color: "#595959"
-									},
-									color: "red"
+										color: "blue"
+									}
 								},
 								emphasis: {
 									show: true,
@@ -115,23 +121,23 @@
 							},
 							itemStyle: {
 								normal: { /*正常显示样式*/
-									color: "red",
+									//									color: "red",
+									//									color:{
+									//										type: 'radial',
+									//									    x: 0.5,
+									//									    y: 0.5,
+									//									    r: 0.5,
+									//									    colorStops: [{
+									//									        offset: 0, color: 'red' // 0% 处的颜色
+									//									    }, {
+									//									        offset: 1, color: 'blue' // 100% 处的颜色
+									//									    }],
+									//									    globalCoord: true // 缺省为 false
+									//									},
 									borderWidth: 2 /*保证不显示边框*/
-
 								},
 								emphasis: { /*鼠标移上样式*/
 									borderWidth: 0,
-								}
-							},
-							areaStyle: {
-								normal: {
-									color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{
-										offset: 0.1,
-										color: 'rgba(255, 0, 0, 0.5)'
-									}, {
-										offset: 1,
-										color: 'rgba(255, 255, 0, 0)'
-									}], false)
 								}
 							}
 
@@ -294,10 +300,9 @@
 					}]
 				})
 
-				
-		}
+			}
 
-	}
+		}
 	}
 </script>
 

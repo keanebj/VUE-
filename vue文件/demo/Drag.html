@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>拖拽</title>
+		<!-- import Vue.js -->
+		<script src="js/vue.min.js"></script>
+		<!-- import stylesheet -->
+		<link rel="stylesheet" href="css/iview.css">
+		<!-- import iView -->
+		<script src="js/iview.min.js"></script>
+		<!--<script src="js/webpack.js"></script>-->
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>拖拽{{msg}}</li>
+			</ul>
+		</div>
+		<!--<dragabletable></dragabletable>-->
+		<AA></AA>
+	</body>
+
+	<script>
+		new Vue({
+			el:".wrap",
+			import AA from "tables/dragable-table.vue"
+			data(){
+				return{
+					msg:"nihao"
+				}
+			},
+			components: {
+		        AA
+		    }
+			
+		})
+		
+	</script>
+
+</html>
